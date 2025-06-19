@@ -3,6 +3,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const connectDB = require("./config/mongodb");
 const { router } = require("./routes/authRoutes");
+const userRouter = require("./routes/userRoutes");
 require("dotenv").config();
 
 const app = express();
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api/auth',router)
+app.use('/api/user',userRouter)
 
 app.listen(PORT, () => {
   console.log(`Server running at port ${PORT}`);
