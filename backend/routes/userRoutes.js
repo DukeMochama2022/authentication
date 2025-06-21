@@ -5,4 +5,4 @@ const userRouter = express.Router();
 
 userRouter.get("/data", userAuth, getUserData);
 
-module.exports=userRouter
+module.exports = userRouter;

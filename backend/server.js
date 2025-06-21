@@ -9,7 +9,12 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ credentials: true }));
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 PORT = process.env.PORT || 4000;
 connectDB();
@@ -19,8 +24,8 @@ app.get("/", (req, res) => {
   res.send("Api working.");
 });
 
-app.use('/api/auth',router)
-app.use('/api/user',userRouter)
+app.use("/api/auth", router);
+app.use("/api/user", userRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running at port ${PORT}`);
