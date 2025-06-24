@@ -32,7 +32,7 @@ const NavBar = () => {
       const { data } = await axios.post(`${backendUrl}/api/auth/logout`);
       data.success && setIsLoggedin(false);
       data.success && setuserData(false);
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       toast.error(error.message);
     }
@@ -49,7 +49,7 @@ const NavBar = () => {
               {!userData.isAccountVerified && (
                 <li
                   onClick={sendVerificationOtp}
-                  className="py-1 px-2 hover:bg-gray-200 cursor-pointer"
+                  className="py-1 px-2  hover:bg-gray-200 cursor-pointer"
                 >
                   Verify Email
                 </li>
